@@ -9,7 +9,7 @@ interface RobotModelProps {
 }
 
 export const RobotModel: React.FC<RobotModelProps> = ({ urdfUrl: _urdfUrl }) => {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null!);
 
   useFrame(() => {
     if (meshRef.current) {
@@ -20,7 +20,7 @@ export const RobotModel: React.FC<RobotModelProps> = ({ urdfUrl: _urdfUrl }) => 
 
   // Placeholder - TODO: Charger URDF avec urdf-loader
   return (
-    <mesh ref={meshRef} position={[0, 1, 0]}>
+    <mesh ref={meshRef as any} position={[0, 1, 0]}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color="orange" />
     </mesh>
