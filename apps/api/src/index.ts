@@ -25,6 +25,7 @@ const io = new Server(httpServer, {
 });
 
 const PORT = process.env.PORT || 4000;
+const HOST = process.env.HOST || "0.0.0.0";
 
 // Middleware
 app.use(helmet());
@@ -51,8 +52,8 @@ setupSocketIO(io);
 // Error handler
 app.use(errorHandler);
 
-httpServer.listen(PORT, () => {
-  console.log(`🚀 API Server running on port ${PORT}`);
+httpServer.listen(Number(PORT), HOST, () => {
+  console.log(`🚀 API Server running on ${HOST}:${PORT}`);
 });
 
 export { app, io };

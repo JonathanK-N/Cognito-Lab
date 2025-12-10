@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = ["nodejs-18_x", "npm"]
+
+[phases.install]
+cmds = [
+  "cd ../.. && npm install",
+  "cd apps/api && npm run postinstall"
+]
+
+[phases.build]
+cmds = [
+  "cd apps/api && npm run build"
+]
+
+[start]
+cmd = "cd apps/api && npm run start"
+
