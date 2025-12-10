@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
-import { CircuitEditor } from "@cognitolab/circuit-editor";
+import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@cognitolab/ui";
+
+const CircuitEditor = dynamic(
+  () => import("@cognitolab/circuit-editor").then((mod) => mod.CircuitEditor),
+  { ssr: false }
+);
 
 export default function CircuitEditorPage() {
   return (

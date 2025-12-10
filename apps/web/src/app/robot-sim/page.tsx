@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
-import { RobotSimulator } from "@cognitolab/robotics";
+import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@cognitolab/ui";
+
+const RobotSimulator = dynamic(
+  () => import("@cognitolab/robotics").then((mod) => mod.RobotSimulator),
+  { ssr: false }
+);
 
 export default function RobotSimPage() {
   return (

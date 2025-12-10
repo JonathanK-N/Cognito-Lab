@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
-import { PcbEditor } from "@cognitolab/eda-pro";
+import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@cognitolab/ui";
+
+const PcbEditor = dynamic(
+  () => import("@cognitolab/eda-pro").then((mod) => mod.PcbEditor),
+  { ssr: false }
+);
 
 export default function PcbEditorPage() {
   return (
