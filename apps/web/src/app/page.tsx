@@ -7,7 +7,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">CognitoLab</h1>
         <p className="text-xl mb-8">
-          Plateforme complète d'apprentissage électronique et robotique
+          Plateforme complète d&apos;apprentissage électronique et robotique
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link href="/circuit-editor">
