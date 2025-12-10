@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "wasm-pack build --target web --out-dir pkg",
-    "dev": "wasm-pack build --target web --out-dir pkg --dev"
+    "build": "sh build.sh",
+    "dev": "sh build.sh"
   },
   "dependencies": {},
   "devDependencies": {
