@@ -26,7 +26,6 @@ model User {
   refreshTokens     RefreshToken[]
   collaborators     ProjectCollaborator[]
   comments          Comment[]
-  courseProgress    CourseProgress[]
   organizationUsers OrganizationUser[]
 }
 
@@ -166,7 +165,6 @@ model CourseProgress {
   updatedAt    DateTime @updatedAt
 
   enrollment CourseEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
-  user       User             @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
 
   @@index([enrollmentId])
 }
