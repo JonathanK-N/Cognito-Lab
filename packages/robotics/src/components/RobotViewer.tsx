@@ -2,9 +2,6 @@
 
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei/core/OrbitControls";
-import { PerspectiveCamera } from "@react-three/drei/core/PerspectiveCamera";
-import { Grid } from "@react-three/drei/core/Grid";
 import { RobotModel } from "./RobotModel";
 
 interface RobotViewerProps {
@@ -13,14 +10,12 @@ interface RobotViewerProps {
 
 export const RobotViewer: React.FC<RobotViewerProps> = ({ urdfUrl }) => {
   return (
-    <Canvas>
+    <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
       <Suspense fallback={null}>
-        <PerspectiveCamera makeDefault position={[5, 5, 5]} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Grid args={[10, 10]} />
+        <gridHelper args={[20, 20]} />
         {urdfUrl && <RobotModel urdfUrl={urdfUrl} />}
-        <OrbitControls />
       </Suspense>
     </Canvas>
   );

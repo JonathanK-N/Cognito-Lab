@@ -28,7 +28,6 @@
     "socket.io-client": "^4.6.1",
     "three": "^0.158.0",
     "@react-three/fiber": "^8.15.11",
-    "@react-three/drei": "^9.88.13",
     "framer-motion": "^10.16.16",
     "react-hook-form": "^7.49.2",
     "zod": "^3.22.4",
