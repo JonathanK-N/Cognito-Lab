@@ -9,6 +9,9 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "start": "npm run start --workspace=@cognitolab/web",
+    "start:api": "npm run start --workspace=@cognitolab/api",
+    "start:web": "npm run start --workspace=@cognitolab/web",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
