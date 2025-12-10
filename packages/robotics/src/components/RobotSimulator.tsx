@@ -17,10 +17,10 @@ export interface RobotSimulatorProps {
 export const RobotSimulator: React.FC<RobotSimulatorProps> = ({
   robot,
   urdfUrl,
-  onPoseChange,
+  onPoseChange: _onPoseChange,
   className,
 }) => {
-  const { setRobot, currentPose, setPose } = useRobotStore();
+  const { setRobot } = useRobotStore();
   const [isRunning, setIsRunning] = useState(false);
 
   React.useEffect(() => {

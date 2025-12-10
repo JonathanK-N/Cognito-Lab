@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Stage, Layer, Group, Rect, Circle, Line, Text } from "react-konva";
+import { Stage, Layer, Group, Rect, Line, Text } from "react-konva";
 import { Schematic } from "@cognitolab/common";
 import { cn } from "@cognitolab/ui";
 
@@ -15,16 +15,16 @@ export interface SchematicEditorProps {
 export const SchematicEditor: React.FC<SchematicEditorProps> = ({
   width = 1200,
   height = 800,
-  onSchematicChange,
+  onSchematicChange: _onSchematicChange,
   className,
 }) => {
   const stageRef = useRef<any>(null);
-  const [schematic, setSchematic] = useState<Schematic>({
+  const [schematic] = useState<Schematic>({
     symbols: [],
     nets: [],
   });
 
-  const handleStageClick = (e: any) => {
+  const handleStageClick = (_e: any) => {
     // TODO: Gérer les clics pour ajouter des symboles
   };
 
@@ -72,10 +72,10 @@ export interface PcbEditorProps {
 export const PcbEditor: React.FC<PcbEditorProps> = ({
   width = 1200,
   height = 800,
-  onPcbChange,
+  onPcbChange: _onPcbChange,
   className,
 }) => {
-  const [layers, setLayers] = useState<number[]>([0, 1]); // Top, Bottom
+  const [layers] = useState<number[]>([0, 1]); // Top, Bottom
   const [currentLayer, setCurrentLayer] = useState<number>(0);
 
   return (

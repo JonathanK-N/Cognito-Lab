@@ -13,10 +13,10 @@ interface WokwiSimulatorProps {
 
 export const WokwiSimulator: React.FC<WokwiSimulatorProps> = ({
   mcuType,
-  code,
-  onCodeChange,
-  isRunning,
-  onRunChange,
+  code: _code,
+  onCodeChange: _onCodeChange,
+  isRunning: _isRunning,
+  onRunChange: _onRunChange,
 }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 

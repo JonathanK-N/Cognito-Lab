@@ -2,13 +2,13 @@
 
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Mesh } from "three";
+import type { Mesh } from "three";
 
 interface RobotModelProps {
   urdfUrl: string;
 }
 
-export const RobotModel: React.FC<RobotModelProps> = ({ urdfUrl }) => {
+export const RobotModel: React.FC<RobotModelProps> = ({ urdfUrl: _urdfUrl }) => {
   const meshRef = useRef<Mesh>(null);
 
   useFrame(() => {

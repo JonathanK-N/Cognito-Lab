@@ -20,7 +20,7 @@ export const CircuitEditor: React.FC<CircuitEditorProps> = ({
   className,
 }) => {
   const stageRef = useRef<any>(null);
-  const { components, connections, addComponent, removeComponent, addConnection } = useCircuitStore();
+  const { components, connections } = useCircuitStore();
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
 
   useEffect(() => {

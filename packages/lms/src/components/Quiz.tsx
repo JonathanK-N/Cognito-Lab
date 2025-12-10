@@ -96,7 +96,7 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
   onChange,
   showCorrect,
 }) => {
-  const isCorrect = Array.isArray(question.correctAnswer)
+  const _isCorrect = Array.isArray(question.correctAnswer)
     ? Array.isArray(answer) &&
       question.correctAnswer.length === answer.length &&
       question.correctAnswer.every((ans) => answer.includes(ans))

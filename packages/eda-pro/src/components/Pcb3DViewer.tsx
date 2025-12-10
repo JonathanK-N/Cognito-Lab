@@ -9,7 +9,7 @@ interface Pcb3DViewerProps {
   pcb: PCB;
 }
 
-export const Pcb3DViewer: React.FC<Pcb3DViewerProps> = ({ pcb }) => {
+export const Pcb3DViewer: React.FC<Pcb3DViewerProps> = ({ pcb: _pcb }) => {
   return (
     <Canvas>
       <Suspense fallback={null}>

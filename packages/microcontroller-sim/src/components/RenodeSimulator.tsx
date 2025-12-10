@@ -15,7 +15,7 @@ interface RenodeSimulatorProps {
 export const RenodeSimulator: React.FC<RenodeSimulatorProps> = ({
   mcuType,
   code,
-  onCodeChange,
+  onCodeChange: _onCodeChange,
   isRunning,
   onRunChange,
 }) => {

@@ -14,13 +14,13 @@ interface InternalSimulatorProps {
 
 export const InternalSimulator: React.FC<InternalSimulatorProps> = ({
   mcuType,
-  code,
-  onCodeChange,
+  code: _code,
+  onCodeChange: _onCodeChange,
   isRunning,
   onRunChange,
 }) => {
   const [output, setOutput] = useState<string>("");
-  const [registers, setRegisters] = useState<Record<string, number>>({});
+  const [registers] = useState<Record<string, number>>({});
 
   const handleRun = () => {
     setOutput(`Simulation interne pour ${mcuType}...\nExécution du code...`);
