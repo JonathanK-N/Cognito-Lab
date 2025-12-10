@@ -2,7 +2,9 @@
 
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, Grid } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei/core/OrbitControls";
+import { PerspectiveCamera } from "@react-three/drei/core/PerspectiveCamera";
+import { Grid } from "@react-three/drei/core/Grid";
 import { RobotModel } from "./RobotModel";
 
 interface RobotViewerProps {
