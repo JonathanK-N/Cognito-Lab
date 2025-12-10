@@ -5,7 +5,7 @@ import { AppError } from "../middleware/errorHandler";
 
 const prisma = new PrismaClient();
 
-export const getUsers = async (req: AuthRequest, res: Response) => {
+export const getUsers = async (_req: AuthRequest, res: Response) => {
   const users = await prisma.user.findMany({
     select: {
       id: true,

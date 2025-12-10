@@ -16,7 +16,7 @@ const courseSchema = z.object({
   category: z.string().optional(),
 });
 
-export const getCourses = async (req: AuthRequest, res: Response) => {
+export const getCourses = async (_req: AuthRequest, res: Response) => {
   const courses = await prisma.course.findMany({
     include: {
       author: {
