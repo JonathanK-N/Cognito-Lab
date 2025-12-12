@@ -3,6 +3,9 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Prisma sur Alpine a souvent besoin d'OpenSSL + compat libc
+RUN apk add --no-cache openssl libc6-compat
+
 # Copy root package files
 COPY package.json package-lock.json* ./
 COPY turbo.json ./
@@ -13,11 +16,11 @@ COPY apps/api/package.json ./apps/api/
 COPY packages/common/package.json ./packages/common/
 
 # Install dependencies
-RUN npm ci
+RUN npm install --ignore-scripts
 
 # Copy source files
 COPY apps/api ./apps/api
-COPY packages/common ./packages/common
+COPY packages ./packages
 
 # Generate Prisma client
 WORKDIR /app/apps/api
@@ -30,6 +33,9 @@ RUN npm run build
 FROM node:18-alpine
 
 WORKDIR /app
+
+# Runtime Prisma
+RUN apk add --no-cache openssl libc6-compat
 
 # Copy built files
 COPY --from=builder /app/apps/api/dist ./dist

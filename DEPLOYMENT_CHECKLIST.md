@@ -37,6 +37,21 @@
 - [ ] Health check passe (`/health`)
 - [ ] Migrations exécutées : `railway run npm run db:migrate`
 
+### Déploiement API via Docker (Render / App Runner / autre)
+
+Si votre plateforme “détecte un Dockerfile” et build l'image Docker, **le contexte de build doit être la racine du repo** (le monorepo), car l’API dépend du workspace `packages/common`.
+
+- [ ] **Dockerfile path** : `apps/api/Dockerfile`
+- [ ] **Build context / Root directory / Source directory** : `/` (racine du repo, pas `/apps/api`)
+
+#### Symptôme typique
+
+Si vous voyez une erreur du type :
+
+- `failed to calculate checksum ... "/packages/common": not found`
+
+cela signifie presque toujours que `packages/common` **n'est pas inclus dans le contexte de build** (mauvaise “root directory” côté plateforme, branche/commit différent, ou packaging incomplet du source).
+
 ## Déploiement de l'Application Web
 
 - [ ] Service Web créé depuis GitHub repo

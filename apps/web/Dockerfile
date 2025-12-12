@@ -10,14 +10,13 @@ COPY tsconfig.json ./
 
 # Copy workspace files
 COPY apps/web/package.json ./apps/web/
-COPY packages/*/package.json ./packages/*/
+COPY packages ./packages
 
 # Install dependencies
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 # Copy source files
 COPY apps/web ./apps/web
-COPY packages ./packages
 
 # Build
 WORKDIR /app/apps/web
