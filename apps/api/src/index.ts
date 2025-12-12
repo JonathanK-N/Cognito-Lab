@@ -43,7 +43,11 @@ app.use("/api/collaboration", collaborationRouter);
 
 // Health check
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
+  res.json({
+    status: "ok",
+    service: "cognitolab-api",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Socket.IO setup
